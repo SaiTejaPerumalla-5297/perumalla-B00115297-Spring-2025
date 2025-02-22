@@ -23,4 +23,6 @@ Update this week: written a small script to check the verification of augmentaio
 
  Next step I will be writing script to train a CNN model.
 
- While I tried running the code I encountered an issue with image type and ran a small code to convert .npy to .jpg and deleted the .npy files
+ While I tried running the code I encountered an issue with image type and ran a small code to convert .npy to .jpg and deleted the .npy files.
+
+ While training the model I found out that there were very few images in validation folder. I had to split 20% of images from training folder to the validation folder (the script is uploaded).
