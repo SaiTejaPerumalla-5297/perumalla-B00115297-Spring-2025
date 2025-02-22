@@ -20,3 +20,7 @@ Update this week: written a small script to check the verification of augmentaio
  After re running class distribution script I found out that there were still imbalances with the data set distribution and then I had to make changes in the augmentation script and created a new file for augmentation and is success with all the categories having 5000 images.
 
  Replaced the class distribution file after re running with new augmented data.
+
+ Next step I will be writing script to train a CNN model.
+
+ While I tried running the code I encountered an issue with image type and ran a small code to convert .npy to .jpg and deleted the .npy files
