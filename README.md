@@ -1,28 +1,67 @@
-# perumalla-B00115297-Spring-2025
-Dental Health Detection
 
-Updates:
-During data pre processing after executing the normalise images script, the expected result was creating a normalised images for test, train, valid folders with labels.
-But I have encountered a problem where the labels were not created but the images were normalised. Henceforth I have made a new file named fix_labels.ipynb to create the labels for the images.
+# 🦷 Dental Image Classification using CNN & Transfer Learning
 
-The next step is EDA. In this the first one is for checking the imbalance in the classes and found out that fillings class has much more images than the other classes. To handle this we have to the data augmentation.
+##  Project Overview
 
-In data augmentation step I encountered a new problem where the class folders were empty, I ran a new script to move the images by classes and re run the data augmentation file.
+This project focuses on the automatic classification of dental X-ray images into the following four categories:
 
-Next step is to re run class distribution script to check the imabalances.
+- **Cavity**
+- **Fillings**
+- **Impacted Tooth**
+- **Implant**
+
+I have trained both **custom CNN models** and applied **Transfer Learning (VGG16)** to compare performance. After improvements and fine-tuning, the best accuracy was achieved with the VGG16 model: **83%+** on test data.
+
+---
+
+##  How to Run the Project
+
+### 1️⃣ Train a Custom CNN Model
+```bash
+python src/custom_cnn_v4.py
+```
+
+### 2️⃣ Train with VGG16 Transfer Learning
+```bash
+python src/vgg16_transfer.py
+```
+
+### 3️⃣  Run the Image Prediction GUI
+```bash
+python src/app_gui.py
+```
+
+---
 
 
-Update this week: written a small script to check the verification of augmentaion and the augmentaion was succesful with the following cavity: 4718 images
- fillings: 490 images
- impacted tooth: 4957 images
- implant: 3848 images
+## Dataset Information
 
- After re running class distribution script I found out that there were still imbalances with the data set distribution and then I had to make changes in the augmentation script and created a new file for augmentation and is success with all the categories having 5000 images.
+- All images have been resized to **224x224 pixels**
+- Dataset split into `train`, `valid`, and `test`
+- Images are normalized (pixel values scaled between 0 and 1)
+- Augmentation is applied to training set because of inconsistency in number of images across the categories:
+  - Rotation, shift, zoom, flip, shear
 
- Replaced the class distribution file after re running with new augmented data.
+Here is the link to access the Dataset
+https://www.kaggle.com/code/banddaniel/dental-x-rays-classification-test-f1-score-0-72
 
- Next step I will be writing script to train a CNN model.
 
- While I tried running the code I encountered an issue with image type and ran a small code to convert .npy to .jpg and deleted the .npy files.
+---
 
- While training the model I found out that there were very few images in validation folder. I had to split 20% of images from training folder to the validation folder (the script is uploaded).
+## GUI Application
+
+- Load any `.h5` model
+- Upload a dental X-ray image
+- Predict class and show confidence
+- Easy to use, built with `tkinter`
+
+---
+
+To use this Project:
+1. Clone the repo
+2. Organize data into `data/train`, `data/valid`, `data/test`
+3. Run any training or evaluation script from `src/`
+4. Use `app_gui.py` to interactively test models
+
+---
+
